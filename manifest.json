@@ -1,0 +1,36 @@
+{
+  "name": "yfmoney",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Automatic Click",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "scripts": [
+      "src/bg/background.js"
+    ],
+    "persistent": true
+  },
+  "permissions": ["tabs"],
+  "browser_action": {
+    "default_icon": "icons/icon19.png",
+    "default_title": "page action demo",
+    "default_popup": "src/popup/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://mkymoney.xyz/showadv.php?rstr=0.19551829333144655"
+      ],
+      "js": [
+        "src/bg/jquery-3.4.1.min.js",
+        "src/content/content.js"
+      ],
+      "run_at": "document_end"
+    }
+  ]
+}
